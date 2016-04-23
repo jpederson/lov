@@ -10,19 +10,39 @@ get_header();
 
 	<?php the_showcase(); ?>
 
-	<div class="about">
-		<div class="wrap content-wide">
-			<?php 
-			if ( have_posts() ) :
-				while ( have_posts() ) : the_post(); 
-					the_content();
-				endwhile;
-			endif;
-			?>
+	<div class="about group">
+		<div class="wrap text-center">
+			<h2>About Living Our Visions</h2>
+			<div class="three-fifth">
+				<?php 
+				if ( have_posts() ) :
+					while ( have_posts() ) : the_post(); 
+						the_content();
+					endwhile;
+				endif;
+				?>
+				<p class="buttons"><a href="/about" class="button">Read more...</a></p>
+			</div>
+			<div class="two-fifth">
+				<p>MEET THE TEAM</p>
+				<img src="<?php bloginfo( 'template_url' ) ?>/img/team-arrows.png" class="team-arrows">
+				<div class="people group">
+					<div class="person half">
+						<img src="<?php bloginfo( 'template_url' ) ?>/img/photo-stefanie.jpg">
+						<h4>Stefanie Primm</h4>
+						<p>Community Organizer</p>
+					</div>
+					<div class="person half">
+						<img src="<?php bloginfo( 'template_url' ) ?>/img/photo-amanda.jpg">
+						<h4>Amanda Bell</h4>
+						<p>Community Organizer</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="events">
+	<div class="events group">
 		<div class="wrap content-wide">
 			<img src="<?php bloginfo('template_url') ?>/img/header-events.png">
 			<?php 
@@ -31,7 +51,7 @@ get_header();
 		</div>
 	</div>
 
-	<div class="posts">
+	<div class="posts group">
 		<div class="wrap">
 			<div class="third">
 				<img src="<?php bloginfo('template_url') ?>/img/header-news.png">

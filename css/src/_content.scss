@@ -28,12 +28,12 @@
 }
 
 
-.quarter, .third, .half, .two-third, .three-quarter {
+.quarter, .third, .half, .two-third, .three-quarter, .two-fifth, .three-fifth {
 	padding: 20px;
 }
 
 @include respond-to( 768px ) {
-	.quarter, .third, .half, .two-third, .three-quarter {
+	.quarter, .third, .half, .two-third, .three-quarter, .two-fifth, .three-fifth {
 		float: left;
 	}
 
@@ -51,6 +51,18 @@
 
 	.three-quarter {
 		width: 75%;
+	}
+
+	.two-fifth {
+		width: 40%;
+	}
+
+	.three-fifth {
+		width: 60%;
+	}
+
+	.half {
+		width: 50%;
 	}
 }
 
