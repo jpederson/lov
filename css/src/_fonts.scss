@@ -1,19 +1,35 @@
 
 
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,700,400italic,700italic);
 
 @mixin font {
-	font-family: Lato, sans-serif;
-	font-weight: 300;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
 }
 
-@mixin font-medium {
-	font-family: Lato, sans-serif;
-	font-weight: 500;
+@mixin font-italic {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	font-style: italic;
 }
 
 @mixin font-bold {
-	font-family: Lato, sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-weight: 700;
 }
 
+@mixin font-bold-italic {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 700;
+	font-style: italic;
+}
+
+@mixin font-cursive {
+	font-family: "Dancing Script", sans-serif;
+	font-weight: 400;
+}
+
+@mixin font-cursive-bold {
+	font-family: "Dancing Script", sans-serif;
+	font-weight: 700;
+}

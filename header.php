@@ -30,20 +30,23 @@
 				<img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
 		</div>
-		
-		<div class="nwcua-logo">
-			<a href="http://www.nwcua.org/"><img src="<?php bloginfo( 'template_url' ) ?>/img/logo-nwcua.png"></a>
-		</div>
 
 		<div class="search">
 			<?php get_search_form(); ?>
+		</div>
+		
+		<div class="social">
+			<a href="https://twitter.com/lovdaneorg" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-twitter.png"></a>
+			<a href="https://www.facebook.com/LovDane/" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-facebook.png"></a>
 		</div>
 
 	</div>
 
 	<nav role="navigation">
-		<button class="menu-toggle"><i class="fa fa-bars"></i></button>
-		<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav-menu' ) ); ?>
+		<div class="wrap">
+			<button class="menu-toggle"><i class="fa fa-bars"></i></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav-menu' ) ); ?>
+		</div>
 	</nav>
 	
 </header>

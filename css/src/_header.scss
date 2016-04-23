@@ -1,15 +1,12 @@
 
 
-$menu-bp: 1024px;
+$menu-bp: 768px;
 
 header {
-	padding-top: 30px;
+	padding-top: 15px;
+	background: url(../img/bg-header-gradient.png) top center repeat-x;
 
 	.logo {
-		margin-right: 60px;
-		padding: 0 0 10px 20px;
-		max-width: 450px;
-
 		@include respond-to( 768px ) {
 			padding-left: 40px;
 		}
@@ -38,11 +35,8 @@ header {
 
 		ul.nav-menu {
 			display: none;
-			background: $grey;
 			position: relative;
 			z-index: 1000;
-			text-align: center;
-			box-shadow: inset 0px 15px 22px -10px rgba(100, 100, 100, 0.3);
 			
 			@include respond-to( $menu-bp ) {
 				display: block;
@@ -65,7 +59,7 @@ header {
 					padding: 15px 5px;
 					font-size: 16px;
 					line-height: 16px;
-					color: white;
+					color: $grey;
 					text-align: center;
 					text-decoration: none;
 					text-transform: uppercase;
@@ -81,10 +75,6 @@ header {
 				}
 
 				&:hover, &.open {
-					a {
-						background: $teal;
-					}
-
 					ul.sub-menu {
 						@include respond-to( $menu-bp ) {
 							display: block;
@@ -95,33 +85,28 @@ header {
 				ul.sub-menu {
 					display: none;
 					margin-bottom: 3px;
+					background: white;
 
 					@include respond-to( $menu-bp ) {
 						position: absolute;
 						left: 0;
 						top: 46px;
 						width: 230px;
-						background: $teal;
 						@include clearfix;
 						text-align: left;
 					}
 
 					li {
-						box-shadow: inset 0px 5px 12px -10px rgba(100, 100, 100, 0.69);
 						display: block;
 
 						a {
-							padding: 7px 5px;
+							padding: 7px 7px;
 							font-size: .9em;
 							display: block;
 
 							@include respond-to( $menu-bp ) {
 								text-align: left;
 								padding: 8px 12px;
-
-								&:hover {
-									background: lighten( $teal, 2% );
-								}
 							}
 						}
 					}
@@ -140,11 +125,12 @@ header {
 			bottom: 0;
 			left: 0;
 			width: 100%;
-			background: lighten( $grey, 30% );
 			border: 0;
 			padding: 0 15px;
 			font-size: 15px;
 			line-height: 35px;
+			border-radius: 10px;
+			border: 1px solid $green;
 		}
 
 		input[type=submit] {
@@ -155,7 +141,7 @@ header {
 			width: 35px;
 			height: 35px;
 			border: 0;
-			background: darken( $grey, 10% ) url(../img/icon-search.png) center center no-repeat;
+			background: url(../img/icon-search.png) center center no-repeat;
 			text-indent: -400px;
 			cursor: pointer;
 
@@ -165,14 +151,12 @@ header {
 				bottom: -6px;
 				width: 47px;
 				height: 47px;
-				border-radius: 50%;
-				border: 6px solid white;
 			}
 		}
 
 		@include respond-to( 768px ) {
 			position: absolute;
-			top: 50px;
+			top: 10px;
 			right: 80px;
 		}
 
@@ -182,13 +166,13 @@ header {
 	}
 
 
-	.nwcua-logo {
+	.social {
 		display: none;
 
 		@include respond-to( 768px ) {
 			display: block;
 			position: absolute;
-			top: -10px;
+			top: 50px;
 			right: 90px;
 		}
 
