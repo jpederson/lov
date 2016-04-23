@@ -110,333 +110,160 @@ function page_metaboxes( $meta_boxes ) {
 
 
 
-    // showcase metabox
-    $left_metabox = new_cmb2_box( array(
-        'id' => 'left_metabox',
-        'title' => 'Left Column',
-        'object_types' => array( 'page', 'product' ), // post type
-        'context' => 'normal',
-        'priority' => 'high',
-        'show_names' => false, // Show field names on the left
-    ));
-
-    $left_metabox->add_field( array(
-        'name' => 'Left Column Content',
-        'description' => 'Enter text or ads for the left column.',
-        'id'   => CMB_PREFIX . 'left_content',
-        'type' => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 7 )
-    ) );
-
-
-
-
-    // select all products
-    $args = array( 'post_type' => 'product', 'posts_per_page' => -1, 'orderby' => 'name', 'order' => 'ASC' );
-    $loop = new WP_Query( $args );
-    $products = array();
-    while ( $loop->have_posts() ) : $loop->the_post();
-        $products[get_the_ID()] = get_the_title();
-    endwhile;
-    wp_reset_query();
-
-
-
-    // accordion metabox
-    $prod_accordion_metabox = new_cmb2_box( array(
-        'id' => 'prod_accordion_metabox',
-        'title' => 'Product Accordion',
-        'object_types' => array( 'page' ), // post type
-        'show_on' => array(
-            'key' => 'template',
-            'value' => array( "" )
-        ),
+    // event metabox
+    $event_metabox = new_cmb2_box( array(
+        'id' => 'event_metabox',
+        'title' => 'Event',
+        'object_types' => array( 'event' ), // post type
         'context' => 'normal',
         'priority' => 'high',
     ) );
 
-    $prod_accordion_metabox->add_field( array(
-        'name' => 'Title',
-        'id'   => CMB_PREFIX . 'prod_accordion_title',
+    $event_metabox->add_field( array(
+        'name' => 'Start Date/Time',
+        'id'   => CMB_PREFIX . 'event_start',
+        'type' => 'text_datetime_timestamp'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'End Date/Time',
+        'id'   => CMB_PREFIX . 'event_end',
+        'type' => 'text_datetime_timestamp'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Early Bird Deadline',
+        'id'   => CMB_PREFIX . 'event_early_date',
+        'type' => 'text_datetime_timestamp'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Early Bird Price',
+        'id'   => CMB_PREFIX . 'event_price_early',
+        'type' => 'text_money'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Regular Price',
+        'id'   => CMB_PREFIX . 'event_price',
+        'type' => 'text_money'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Venue',
+        'id'   => CMB_PREFIX . 'event_venue',
         'type' => 'text',
     ) );
 
-    $prod_accordion_metabox->add_field( array(
-        'name' => 'Color',
-        'id'   => CMB_PREFIX . 'prod_accordion_color',
-        'type' => 'select',
-        'default' => 'teal',
-        'options' => $colors
+    $event_metabox->add_field( array(
+        'name' => 'Address',
+        'id'   => CMB_PREFIX . 'event_address',
+        'type' => 'text'
     ) );
 
-    $prod_accordion_metabox->add_field( array(
-        'name' => 'Icon',
-        'id'   => CMB_PREFIX . 'prod_accordion_icon',
-        'type' => 'file',
-        'preview_size' => array( 30, 30 )
-    ) );
-
-    $prod_accordion_metabox->add_field( array(
-        'name' => 'Products',
-        'id' => CMB_PREFIX . 'prod_accordion_products',
-        'type' => 'multicheck',
-        'options' => $products,
-    ) );
-
-
-
-    // select all products
-    $args = array( 'post_type' => 'partner', 'posts_per_page' => -1, 'orderby' => 'name', 'order' => 'ASC' );
-    $loop = new WP_Query( $args );
-    $partners = array();
-    while ( $loop->have_posts() ) : $loop->the_post();
-        $partners[get_the_ID()] = get_the_title();
-    endwhile;
-    wp_reset_query();
-
-
-
-    // accordion metabox
-    $part_accordion_metabox = new_cmb2_box( array(
-        'id' => 'part_accordion_metabox',
-        'title' => 'Partner Accordion',
-        'object_types' => array( 'page' ), // post type
-        'show_on' => array(
-            'key' => 'template',
-            'value' => array( "" )
-        ),
-        'context' => 'normal',
-        'priority' => 'high',
-    ) );
-
-    $part_accordion_metabox->add_field( array(
-        'name' => 'Title',
-        'id'   => CMB_PREFIX . 'part_accordion_title',
-        'type' => 'text',
-    ) );
-
-    $part_accordion_metabox->add_field( array(
-        'name' => 'Color',
-        'id'   => CMB_PREFIX . 'part_accordion_color',
-        'type' => 'select',
-        'default' => 'teal',
-        'options' => $colors
-    ) );
-
-    $part_accordion_metabox->add_field( array(
-        'name' => 'Icon',
-        'id'   => CMB_PREFIX . 'part_accordion_icon',
-        'type' => 'file',
-        'preview_size' => array( 30, 30 )
-    ) );
-
-    $part_accordion_metabox->add_field( array(
-        'name' => 'Partners',
-        'id' => CMB_PREFIX . 'part_accordion_partners',
-        'type' => 'multicheck',
-        'options' => $partners,
-    ) );
-
-
-
-    // accordion metabox
-    $accordion_metabox = new_cmb2_box( array(
-        'id' => 'accordion_metabox',
-        'title' => 'General Accordions',
-        'object_types' => array( 'page' ), // post type
-        'show_on' => array(
-            'key' => 'template',
-            'value' => array( "" )
-        ),
-        'context' => 'normal',
-        'priority' => 'high',
-    ) );
-
-    $accordion_metabox_group = $accordion_metabox->add_field( array(
-        'id' => CMB_PREFIX . 'accordion',
-        'type' => 'group',
-        'options' => array(
-            'add_button' => __('Add Box', 'cmb'),
-            'remove_button' => __('Remove Box', 'cmb'),
-            'group_title'   => __( 'Accordion Box {#}', 'cmb' ), // since version 1.1.4, {#} gets replaced by row number
-            'sortable' => true, // beta
-        )
-    ) );
-
-    $accordion_metabox->add_group_field( $accordion_metabox_group, array(
-        'name' => 'Title',
-        'id'   => 'title',
-        'type' => 'text',
-    ) );
-
-    $accordion_metabox->add_group_field( $accordion_metabox_group, array(
-        'name' => 'Icon',
-        'id'   => 'icon',
-        'type' => 'file',
-        'preview_size' => array( 30, 30 )
-    ) );
-
-    $accordion_metabox->add_group_field( $accordion_metabox_group, array(
-        'name' => 'Color',
-        'id'   => 'color',
-        'type' => 'select',
-        'default' => 'teal',
-        'options' => $colors
-    ) );
-
-    $accordion_metabox->add_group_field( $accordion_metabox_group, array(
-        'name' => 'Default State',
-        'id'   => 'state',
-        'type' => 'select',
-        'default' => 'closed',
-        'options' => array(
-            'closed' => 'Closed',
-            'open' => 'Open',
-        )
-    ) );
-
-    $accordion_metabox->add_group_field( $accordion_metabox_group, array(
-        'name' => 'Content',
-        'id'   => 'content',
-        'type' => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 7 )
-    ) );
-
-
-
-    // partner information
-    $partner_info = new_cmb2_box( array(
-        'id' => 'partner_info',
-        'title' => 'Partner Information',
-        'object_types' => array( 'partner' ), // post type
-        'context' => 'normal',
-        'priority' => 'high',
-        'show_names' => true, // Show field names on the left
-    ) );
-
-    $partner_info->add_field( array(
-        'name' => 'Featured Partner',
-        'desc' => 'Set this partner as a featured partner so they show first on listings?',
-        'id' => CMB_PREFIX . 'partner_featured',
-        'type' => 'select',
-        'options' => array(
-            '0' => 'No',
-            '1' => 'Yes'
-        )
-    ) );
-
-    $partner_info->add_field( array(
-        'name' => 'Logo',
-        'desc' => 'Set a partner logo image.',
-        'id' => CMB_PREFIX . 'partner_logo',
-        'type' => 'file',
-        'allow' => array( 'url', 'attachment' )
-    ) );
-
-    $partner_contacts = $partner_info->add_field( array(
-        'id' => CMB_PREFIX . 'partner_contacts',
-        'type' => 'group',
-        'options' => array(
-            'add_button' => __('Add Contact', 'cmb'),
-            'remove_button' => __('Remove Contact', 'cmb'),
-            'group_title'   => __( 'Contact {#}', 'cmb' ), // since version 1.1.4, {#} gets replaced by row number
-            'sortable' => true, // beta
-        )
-    ) );
-
-    $partner_info->add_group_field( $partner_contacts, array(
-        'name' => 'Contact Photo',
-        'desc' => 'Add a photo of the contact person.',
-        'id' => 'photo',
-        'type' => 'file',
-        'allow' => array( 'url', 'attachment' ),
-        'preview_size' => array( 50, 50 )
-    ) );
-
-    $partner_info->add_group_field( $partner_contacts, array(
-        'name' => 'Contact Name',
-        'id' => 'name',
+    $event_metabox->add_field( array(
+        'name' => 'City',
+        'id'   => CMB_PREFIX . 'event_city',
         'type' => 'text_medium'
     ) );
 
-    $partner_info->add_group_field( $partner_contacts, array(
-        'name' => 'Phone Number',
-        'id' => 'phone',
-        'type' => 'text_medium'
+    $event_metabox->add_field( array(
+        'name' => 'State',
+        'id'   => CMB_PREFIX . 'event_state',
+        'type' => 'text_small'
     ) );
 
-    $partner_info->add_group_field( $partner_contacts, array(
-        'name' => 'Email Address',
-        'id' => 'email',
+    $event_metabox->add_field( array(
+        'name' => 'Zipcode',
+        'id'   => CMB_PREFIX . 'event_zipcode',
+        'type' => 'text_small'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Email',
+        'id'   => CMB_PREFIX . 'event_email',
         'type' => 'text_email'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Twitter ID',
-        'id' => CMB_PREFIX . 'partner_twitter',
+    $event_metabox->add_field( array(
+        'name' => 'Phone',
+        'id'   => CMB_PREFIX . 'event_phone',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Fax',
+        'id'   => CMB_PREFIX . 'event_fax',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Venue Website',
+        'id'   => CMB_PREFIX . 'event_venue_website',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Hotel',
+        'id'   => CMB_PREFIX . 'event_hotel',
+        'type' => 'text',
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Hotel Address',
+        'id'   => CMB_PREFIX . 'event_hotel_address',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Hotel City',
+        'id'   => CMB_PREFIX . 'event_hotel_city',
         'type' => 'text_medium'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Website',
-        'id' => CMB_PREFIX . 'partner_website',
-        'type' => 'text_url'
+    $event_metabox->add_field( array(
+        'name' => 'Hotel State',
+        'id'   => CMB_PREFIX . 'event_hotel_state',
+        'type' => 'text_small'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Testimonials',
-        'id' => CMB_PREFIX . 'partner_testimonials',
-        'type' => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 10, )
+    $event_metabox->add_field( array(
+        'name' => 'Hotel Zipcode',
+        'id'   => CMB_PREFIX . 'event_hotel_zipcode',
+        'type' => 'text_small'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Articles',
-        'desc' => 'Enter some links to and perhaps snippets of articles from around the web.',
-        'id' => CMB_PREFIX . 'partner_articles',
-        'type' => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 7, )
+    $event_metabox->add_field( array(
+        'name' => 'Hotel Email',
+        'id'   => CMB_PREFIX . 'event_hotel_email',
+        'type' => 'text_email'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Videos',
-        'desc' => 'Paste video URLs to embed videos automatically, so you can enter content above/below it.',
-        'id' => CMB_PREFIX . 'partner_videos',
-        'type' => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 7, )
+    $event_metabox->add_field( array(
+        'name' => 'Hotel Phone',
+        'id'   => CMB_PREFIX . 'event_hotel_phone',
+        'type' => 'text'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Products',
-        'desc' => 'Select the products this partner provides.',
-        'id' => CMB_PREFIX . 'partner_products',
-        'type' => 'multicheck',
-        'options' => $products,
+    $event_metabox->add_field( array(
+        'name' => 'Hotel Rate',
+        'id'   => CMB_PREFIX . 'event_hotel_price',
+        'type' => 'text_money'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Goals',
-        'desc' => 'Select the goals the partner will help achieve.',
-        'id' => CMB_PREFIX . 'partner_goals',
-        'type' => 'multicheck',
-        'options' => $goals,
+    $event_metabox->add_field( array(
+        'name' => 'Hotel Website',
+        'id'   => CMB_PREFIX . 'event_hotel_website',
+        'type' => 'text'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Product Stage',
-        'desc' => 'How established/tried & true are the products this partner offers.',
-        'id' => CMB_PREFIX . 'partner_stages',
-        'type' => 'multicheck',
-        'options' => $stages,
+    $event_metabox->add_field( array(
+        'name' => 'Event Website',
+        'id'   => CMB_PREFIX . 'event_website',
+        'desc' => 'If populated, links from the calendar/listings will go directly to this URL instead of the event page on this website.',
+        'type' => 'text'
     ) );
 
-    $partner_info->add_field( array(
-        'name' => 'Ad Image',
-        'id' => CMB_PREFIX . 'partner_ad_image',
-        'desc' => 'Upload an ad image for this partner (768x90).',
-        'type' => 'file',
-        'preview_size' => array( 768, 90 )
-    ) );
 
 }
 add_filter( 'cmb2_init', 'page_metaboxes' );

@@ -4,20 +4,7 @@ footer {
 	background: $green;
 	color: white;
 	@include clearfix;
-
-	.column {
-		padding: 20px;
-
-		@include respond-to( 768px ) {
-			float: left;
-			width: 50%;
-		}
-
-		@include respond-to( 1024px ) {
-			width: 25%;
-			padding: 30px 40px;
-		}
-	}
+	padding-bottom: 30px;
 	
 	h3 {
 		@include font;

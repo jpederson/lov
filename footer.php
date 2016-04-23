@@ -16,26 +16,26 @@
 	
 	<footer class="footer">
 		<div class="wrap">
-			<div class="column first">
+			<div class="quarter">
 				<h3>Contact Stefanie</h3>
 				<p><strong>Stefanie Primm</strong><br>
 					stefanie@lovdane.org<br>
 					608-219-8178</p>
 			</div>
-			<div class="column first">
+			<div class="quarter">
 				<h3>Contact Amanda</h3>
 				<p><strong>Amanda Pell</strong><br>
 					amanda@lovdane.org<br>
 					608-516-4285</p>
 			</div>
-			<div class="column">
+			<div class="quarter">
 				<h3>Connect</h3>
 				<div class="social">
 					<a href="https://twitter.com/lovdaneorg" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-white-twitter.png"></a>
 					<a href="https://www.facebook.com/lovdane/" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-white-facebook.png"></a>
 				</div>
 			</div>
-			<div class="column text-center">
+			<div class="quarter text-center">
 				<h3>Subscribe</h3>
 				<p>Keep up to date with the latest news and events from Living Our Vision! </p>
 			</div>

@@ -20,17 +20,6 @@
 .content-wide {
 	@include clearfix;
 	padding: 40px 20px;
-
-	@include respond-to( 1024px ) {
-		padding: 40px;
-	}
-
-	iframe:first-child {
-		@include respond-to( 840px ) {
-			float: right;
-			margin: 20px 0 20px 5%;
-		}
-	}
 }
 
 
@@ -49,23 +38,19 @@
 	}
 
 	.quarter {
-		width: 23%;
-		margin: 0 1%;
+		width: 25%;
 	}
 
 	.third {
-		width: 31%;
-		margin: 0 1%;
+		width: 33%;
 	}
 
 	.two-third {
-		width: 65%;
-		margin: 0 1%;
+		width: 66%;
 	}
 
 	.three-quarter {
-		width: 73%;
-		margin: 0 1%;
+		width: 75%;
 	}
 }
 
