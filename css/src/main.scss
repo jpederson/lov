@@ -1,0 +1,291 @@
+
+
+// color variables
+$grey: #636464;
+$grey-light: #DEE0E0;
+$blue: #255AA8;
+$teal: #00B1B0;
+$orange: #F7941E;
+$purple: #412875;
+
+
+@import "reset";
+
+@import "fonts";
+
+@import "mixins";
+
+@import "base";
+
+@import "grid";
+
+
+// background-container
+.container {
+	background: $grey-light url(../img/bg-body.jpg) top center;
+}
+
+
+
+// wrap div
+.wrap {
+	max-width: 1100px;
+	margin: 0 auto;
+	position: relative;
+	@include clearfix;
+}
+
+
+
+// header styles
+.header {
+	.wrap {
+		position: relative;
+		@include clearfix;
+
+		.logo {
+			padding: 20px;
+
+			@include respond-to( 768px ) {
+				padding: 30px 20px 15px;
+			}
+		}
+		
+		ul {
+			li {
+				a {
+					display: block;
+					padding: 7px 15px;
+					text-align: center;
+					color: white;
+					text-transform: uppercase;
+					font-size: 1.2em;
+				}
+
+				&.services a { background: $purple; }
+				&.testimonials a { background: $teal; }
+				&.connect a { background: $orange; }
+			}
+
+			@include respond-to( 768px ) {
+				position: absolute;
+				top: 0;
+				right: 10px;
+
+				li {
+					float: left;
+					margin-left: 20px;
+				}
+			}
+		}
+
+		.subtitle {
+			display: none;
+
+			@include respond-to( 768px ) {
+				display: block;
+				position: absolute;
+				bottom: 25px;
+				right: 10px;
+				color: $blue;
+				text-transform: uppercase;
+				font-size: 1.4em;
+				@include font-bold;
+			}
+
+			@include respond-to( 1024px ) {
+				font-size: 1.8em;
+			}
+		}
+
+	}
+}
+
+
+
+// section styles
+section {	
+	.bg-symbols {
+		text-align: center;
+	}
+
+	h1 {
+		@include font-bold;
+		font-size: 40px;
+		padding: 10px 0;
+	}
+
+	h2 {
+		text-transform: uppercase;
+		font-size: 45px;
+		padding: 2px 0;
+	}
+	
+	hr {
+		height: 1px;
+		background: transparent;
+		border-bottom: 1px solid white;
+		padding: 0;
+		margin: 25px 0;
+
+		@include respond-to( 768px ) {
+			margin: 25px 40px;
+		}
+	}
+
+	h4 {
+		font-size: 25px;
+		line-height: 35px;
+		padding: 2px 0;
+	}
+
+	.arrow-bar {
+		text-align: center;
+
+		@include respond-to( 1024px ) {
+			text-align: left;
+		}
+	}
+
+	.content {
+		padding: 20px;
+
+		@include respond-to( 768px ) {
+			padding: 30px 40px;
+		}
+	}
+
+	&.services .content {
+		padding: 0;
+
+		@include respond-to( 768px ) {
+			padding: 30px 0;
+		}
+
+		@include respond-to( 1024px ) {
+			padding: 45px 0;
+		}
+
+		.third {
+			padding: 20px;
+			text-align: center;
+
+			img {
+				float: left;
+				margin: 0 10px 10px 0;
+				max-width: 25%;
+			}
+
+			h4 {
+				font-size: 20px;
+				line-height: 30px;
+				text-transform: uppercase;
+			}
+
+			@include respond-to( 768px ) {
+				width: 32%;
+				margin-right: 2%;
+
+				&:nth-child( 3 ) {
+					margin-right: 0;
+				}
+			}
+
+			.third-content {
+				background: white;
+				padding: 10px 15px;
+				margin-top: 10px;
+				clear: left;
+
+				@include respond-to( 768px ) {
+					padding: 15px 30px;
+					min-height: 280px;
+				}
+			}
+		}
+	}
+
+	blockquote {
+		padding: 0 0 30px 50px;
+		font-size: 1.4em;
+		line-height: 1.3em;
+		@include font-bold;
+
+		&.teal { background: url(../img/quote-small-teal.png) top left no-repeat; }
+		&.purple { background: url(../img/quote-small-purple.png) top left no-repeat; }
+		&.blue { background: url(../img/quote-small-blue.png) top left no-repeat; }
+		&.orange { background: url(../img/quote-small-orange.png) top left no-repeat; }
+
+		@include respond-to( 768px ) {
+			padding: 0 0 30px 77px;
+			font-size: 1.8em;
+			line-height: 1.3em;
+
+			&.teal { background: url(../img/quote-large-teal.png) top left no-repeat; }
+			&.purple { background: url(../img/quote-large-purple.png) top left no-repeat; }
+			&.blue { background: url(../img/quote-large-blue.png) top left no-repeat; }
+			&.orange { background: url(../img/quote-large-orange.png) top left no-repeat; }
+		}
+	}
+}
+
+
+
+// footer styles
+footer {
+	.bg-symbols {
+		font-size: 1.2em;
+		line-height: 1.2em;
+		color: white;
+
+		div {
+			padding: 10px 0;
+
+			@include respond-to( 1024px ) {
+				float: left;
+				width: 45%;
+				margin-right: 4%;
+			}
+		}
+
+		@include respond-to( 768px ) {
+			background-position: top left;
+			padding-left: 475px;
+		}
+	}
+}
+
+
+
+// padding div that'll resize for larger screens.
+.pad {
+	padding: 30px 20px;
+}
+
+
+
+// colors
+.bg-blue { background: $blue; }
+.bg-teal { background: $teal; }
+.bg-grey { background: $grey-light; }
+.bg-purple { background: $purple; }
+.bg-orange { background: $orange; }
+.bg-white { background: white; }
+.bg-symbols {
+	padding: 30px;
+	background: url(../img/bg-symbols.png) center center no-repeat;
+
+	@include respond-to( 1024px ) {
+		background-position: left center;
+		padding-left: 450px;
+	}
+}
+
+.text-blue { color: $blue; }
+.text-teal { color: $teal; }
+.text-grey { color: $grey-light; }
+.text-purple { color: $purple; }
+.text-orange { color: $orange; }
+.text-white { color: white; }
+
+
