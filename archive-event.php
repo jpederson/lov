@@ -13,17 +13,6 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category']!=0 ) {
 }
 
 ?>
-	<div class="large-title bg-lime">
-		<div class="wrap">
-			<div class="large-title-icon bg-lime" style="background-image: url(<?php print get_bloginfo('template_url') . '/img/event-image.png' ?>);">
-				<div class="hex1"></div>
-				<div class="hex2"></div>
-			</div>
-			<div class="large-title-text">
-				<h1><?php print $page_title; ?></h1>
-			</div>
-		</div>
-	</div>
 	
 	<div id="content" class="wrap content-wide" role="main">
 		<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
