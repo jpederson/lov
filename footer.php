@@ -37,7 +37,7 @@
 			</div>
 			<div class="quarter text-center">
 				<h3>Subscribe</h3>
-				<p>Keep up to date with the latest news and events from Living Our Vision! </p>
+				<p>Keep up to date with the latest news and events from Living Our Visions! </p>
 			</div>
 		</div>
 	</footer><!-- #colophon -->

@@ -9,9 +9,6 @@ get_header();
 	<?php the_showcase(); ?>
 	
 	<?php if ( has_cmb_value( 'left_content' ) ) { ?>
-	<div id="content" class="wrap group content-two-column" role="main">
-		<div class="three-quarter">
-	<?php } else { ?>
 	<div id="content" class="wrap group content-wide" role="main">
 	<?php } ?>
 		<?php 
@@ -22,9 +19,6 @@ get_header();
 		endif;
 		?>
 		<?php if ( has_cmb_value( 'left_content' ) ) { ?>
-		</div>
-		<div class="quarter">
-			<?php show_cmb_wysiwyg_value( 'left_content' ) ?>
 		</div>
 <?php } ?>
 	</div><!-- #content -->
