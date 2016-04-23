@@ -7,3 +7,6 @@
 [submodule "js/lib/creep"]
 	path = js/lib/creep
 	url = https://github.com/jpederson/Creep.js.git
+[submodule "library/cmb2"]
+	path = library/cmb2
+	url = https://github.com/WebDevStudios/CMB2.git

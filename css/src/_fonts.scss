@@ -1,35 +1,19 @@
 
 
-@font-face {
-	font-family: 'Eurostile Bold';
-	src: url('fonts/eurostile-bold.eot');
-	src: local('☺'), 
-		url('fonts/eurostile-bold.woff') format('woff'), 
-		url('fonts/eurostile-bold.ttf') format('truetype'), 
-		url('fonts/eurostile-bold.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-
-@font-face {
-	font-family: 'Eurostile';
-	src: url('fonts/eurostile.eot');
-	src: local('☺'), 
-		url('fonts/eurostile.woff') format('woff'), 
-		url('fonts/eurostile.ttf') format('truetype'), 
-		url('fonts/eurostile.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic);
 
 @mixin font {
-	font-family: "Eurostile", sans-serif;
-	font-weight: 400;
+	font-family: Lato, sans-serif;
+	font-weight: 300;
+}
+
+@mixin font-medium {
+	font-family: Lato, sans-serif;
+	font-weight: 500;
 }
 
 @mixin font-bold {
-	font-family: "Eurostile Bold", sans-serif;
-	font-weight: 400;
+	font-family: Lato, sans-serif;
+	font-weight: 700;
 }
+

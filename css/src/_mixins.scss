@@ -17,6 +17,18 @@
 	&, &:before, &:after { clear: both; }
 }
 
+
 .clearfix, .group {
 	@include clearfix;
+}
+
+
+@mixin wrap( $max-width ) {
+	max-width: $max-width;
+	margin: 0 auto;
+}
+
+
+@mixin wrap-main {
+	@include wrap( 1220px );
 }
