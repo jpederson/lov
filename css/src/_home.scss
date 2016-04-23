@@ -42,17 +42,31 @@
 			@include font-cursive;
 		}
 	}
-
 }
 
 
 .events {
 	border-top: 2px dotted $grey;
+	margin: 0 -20px;
+
+	.event {
+
+	}
 }
 
 
 .posts {
 	padding: 20px 0;
 	border-top: 2px dotted $grey;
+
+	li {
+		@include clearfix;
+	}
+	
+	.wp-post-image {
+		float: left;
+		width: 25%;
+		margin: 0 10px 10px 0;
+	}
 }
 

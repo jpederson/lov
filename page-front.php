@@ -47,20 +47,14 @@ get_header();
 			<img src="<?php bloginfo('template_url') ?>/img/header-events.png">
 			<div class="home-event-list">
 				<?php 
-				$args = array(
-					'cat' => '-3',
-					'posts_per_page' => 3
-				);
+				$events = get_upcoming_events( 3 );
 
-				// The Query
-				$the_query = new WP_Query( $args );
-
-				// The Loop
-				if ( $the_query->have_posts() ) {
+				// loop through events
+				if ( !empty( $events ) ) {
 					echo '<ul>';
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						echo '<li><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail() . get_the_title() . '</a></li>';
+					foreach ( $events as $event ) {
+						$thumb = get_the_post_thumbnail( $event );
+						echo '<li class="event third"><a href="/event/' . $event->post_name . '">' . $thumb . '<h3>' . $event->post_title . '</h3></a><p>' . date( 'n/j/Y \a\t g:ia', $event->_p_event_start ) . '</p><p><a href="/event/' . $event->post_name . '" class="button">Register</a></p></li>';
 					}
 					echo '</ul>';
 				} else {
@@ -77,54 +71,59 @@ get_header();
 		<div class="wrap">
 			<div class="third">
 				<img src="<?php bloginfo('template_url') ?>/img/header-news.png">
-				<?php 
-				$args = array(
-					'cat' => '-3',
-					'posts_per_page' => 3
-				);
+				<div class="group">
+					<?php 
+					$args = array(
+						'cat' => "-3",
+						'posts_per_page' => 3
+					);
 
-				// The Query
-				$the_query = new WP_Query( $args );
+					// The Query
+					$the_query = null;
+					$the_query = new WP_Query( $args );
 
-				// The Loop
-				if ( $the_query->have_posts() ) {
-					echo '<ul>';
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						echo '<li><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail() . get_the_title() . '</a></li>';
+					// The Loop
+					if ( $the_query->have_posts() ) {
+						echo '<ul>';
+						while ( $the_query->have_posts() ) {
+							$the_query->the_post();
+							echo '<li><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail() . '<h4>' . get_the_title() . '</h4></a><div class="post-date">' . get_the_date() . '</div></li>';
+						}
+						echo '</ul>';
+					} else {
+						// no posts found
 					}
-					echo '</ul>';
-				} else {
-					// no posts found
-				}
-				/* Restore original Post Data */
-				wp_reset_postdata();
-				?>
+					/* Restore original Post Data */
+					wp_reset_postdata();
+					?>
+				</div>
 			</div>
 			<div class="two-third">
 				<img src="<?php bloginfo('template_url') ?>/img/header-featured-blog.png">
-				<?php 
-				$args = array(
-					'cat' => '-3',
-					'posts_per_page' => 1
-				);
+				<div class="group">
+					<?php 
+					$args = array(
+						'category__in' => array( 3 ),
+						'posts_per_page' => 1
+					);
 
-				// The Query
-				$the_query = new WP_Query( $args );
+					// The Query
+					$the_query = null;
+					$the_query = new WP_Query( $args );
 
-				// The Loop
-				if ( $the_query->have_posts() ) {
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						the_post_thumbnail();
-						echo '<a href="' . get_the_permalink() . '">' . get_the_post_thumbnail_url() . get_the_title() . '</a></li>';
+					// The Loop
+					if ( $the_query->have_posts() ) {
+						while ( $the_query->have_posts() ) {
+							$the_query->the_post();
+							echo '<a href="' . get_the_permalink() . '">' . get_the_post_thumbnail() . '<h4>' . get_the_title() . '</h4></a><div class="post-date">' . get_the_date() . '</div><div class="post-excerpt">' . get_the_excerpt() . '</div>';
+						}
+					} else {
+						// no posts found
 					}
-				} else {
-					// no posts found
-				}
-				/* Restore original Post Data */
-				wp_reset_postdata();
-				?>
+					/* Restore original Post Data */
+					wp_reset_postdata();
+					?>
+				</div>
 			</div>
 		</div>
 	</div>
