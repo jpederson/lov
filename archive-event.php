@@ -15,9 +15,6 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category']!=0 ) {
 ?>
 	
 	<div id="content" class="wrap content-wide" role="main">
-		<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
-		    <span><a href="<?php home_url() ?>" class="home">LSCU</a></span> &gt; <span><span><?php print $page_title; ?></span></span>
-		</div>
 		<p><strong>Filter by Event Type:</strong> <?php filter_by_event_type(); ?></p>
 		<br>
 		<?php 
