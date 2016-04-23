@@ -51,4 +51,4 @@
 	
 </header>
 
-<section class="content">
+<section class="content<?php print ( has_showcase() ? '' : ' content-border' ) ?>">

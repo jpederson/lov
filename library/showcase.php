@@ -61,4 +61,16 @@ function the_showcase() {
 }
 
 
+function has_showcase() {
+
+	// get the slides
+	$slides = get_post_meta( get_the_ID(), CMB_PREFIX . "showcase", 1 );
+
+	if ( !empty( $slides ) ) {
+		return true;
+	}
+	return false;
+}
+
+
 ?>
