@@ -69,7 +69,7 @@ get_header();
 					echo '<ul>';
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
-						echo '<li>' . get_the_title() . '</li>';
+						echo '<li>' . get_the_post_thumbnail() . get_the_title() . '</li>';
 					}
 					echo '</ul>';
 				} else {
@@ -92,12 +92,11 @@ get_header();
 
 				// The Loop
 				if ( $the_query->have_posts() ) {
-					echo '<ul>';
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
-						echo '<li><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail_url() . get_the_title() . '</a></li>';
+						the_post_thumbnail();
+						echo '<a href="' . get_the_permalink() . '">' . get_the_post_thumbnail_url() . get_the_title() . '</a></li>';
 					}
-					echo '</ul>';
 				} else {
 					// no posts found
 				}
