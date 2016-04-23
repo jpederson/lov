@@ -47,7 +47,10 @@
 
 .events {
 	border-top: 2px dotted $grey;
-	margin: 0 -20px;
+
+	.home-event-list {
+		margin: 0 -20px;
+	}
 
 	.event {
 
@@ -67,6 +70,17 @@
 		float: left;
 		width: 25%;
 		margin: 0 10px 10px 0;
+	}
+	
+	h4 {
+		padding-top: 10px;
+	}
+
+	.post-date {
+		font-size: .9em;
+		@include font-italic;
+		color: $grey;
+		padding: 5px 0;
 	}
 }
 
