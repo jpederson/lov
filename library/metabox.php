@@ -10,55 +10,6 @@ require_once( 'cmb2/init.php' );
 function page_metaboxes( $meta_boxes ) {
 
 
-    // global vars we're using to store CU Match up questions.
-    global $goals, $stages;
-
-
-    // set up the colors
-    $colors = array(
-        'teal' => 'Teal',
-        'river' => 'River',
-        'navy' => 'Navy',
-        'forest' => 'Forest',
-        'lime' => 'Lime',
-        'orange' => 'Orange',
-        'grey-light' => 'Grey - Light',
-        'grey-dark' => 'Grey - Dark',
-    );
-
-
-    // showcase metabox
-    $title_metabox = new_cmb2_box( array(
-        'id' => 'title_metabox',
-        'title' => 'Large Title',
-        'object_types' => array( 'page', 'product' ), // post type
-        'context' => 'normal',
-        'priority' => 'high',
-    ));
-
-    $title_metabox->add_field( array(
-        'name' => 'Title',
-        'id'   => CMB_PREFIX . 'large-title',
-        'type' => 'text',
-    ) );
-
-    $title_metabox->add_field( array(
-        'name' => 'Icon',
-        'id'   => CMB_PREFIX . 'large-title-icon',
-        'type' => 'file',
-        'preview_size' => array( 30, 30 )
-    ) );
-
-    $title_metabox->add_field( array(
-        'name' => 'Color',
-        'id'   => CMB_PREFIX . 'large-title-color',
-        'type' => 'select',
-        'default' => 'teal',
-        'options' => $colors
-    ) );
-
-
-
     // showcase metabox
     $showcase_metabox = new_cmb2_box( array(
         'id' => 'showcase_metabox',
