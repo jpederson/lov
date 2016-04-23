@@ -7,9 +7,7 @@ header {
 	background: url(../img/bg-header-gradient.png) top center repeat-x;
 
 	.logo {
-		@include respond-to( 768px ) {
-			padding-left: 40px;
-		}
+		padding: 0 0 10px 30px;
 	}
 
 	nav {
@@ -156,7 +154,7 @@ header {
 
 		@include respond-to( 768px ) {
 			position: absolute;
-			top: 10px;
+			top: 30px;
 			right: 80px;
 		}
 
@@ -172,7 +170,7 @@ header {
 		@include respond-to( 768px ) {
 			display: block;
 			position: absolute;
-			top: 50px;
+			top: 90px;
 			right: 90px;
 		}
 
