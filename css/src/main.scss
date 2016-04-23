@@ -39,6 +39,7 @@ $link-color: $teal;
 @import "title";
 @import "showcase";
 @import "content";
+@import "events";
 @import "matchup";
 
 
@@ -52,10 +53,6 @@ $link-color: $teal;
 
 // home-specific styles
 @import "home";
-
-
-// partner styles
-@import "partners";
 
 
 
